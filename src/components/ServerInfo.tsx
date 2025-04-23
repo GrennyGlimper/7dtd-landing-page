@@ -1,116 +1,82 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Separator } from "@/components/ui/separator";
+import { Server, Globe, Users, Cpu, Calendar, Clock } from "lucide-react";
 
 const ServerInfo = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <Card className="border-accent/20 bg-secondary/50 backdrop-blur-sm overflow-hidden">
-        <div className="relative h-48">
-          <img 
-            src="/placeholder.svg" 
-            alt="7 Days to Die Server Banner" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent" />
-          <div className="absolute bottom-0 left-0 p-4">
-            <Badge className="bg-primary text-white mb-2">Онлайн</Badge>
-            <h3 className="text-2xl font-bold text-white">Zombie Apocalypse</h3>
-            <p className="text-muted-foreground">Хардкорное выживание</p>
-          </div>
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <Card className="border-primary/20 bg-secondary/30 backdrop-blur-sm">
         <CardContent className="pt-6">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="flex items-start gap-4">
+            <Server className="h-8 w-8 text-primary flex-shrink-0" />
             <div>
-              <p className="text-sm text-muted-foreground">IP сервера</p>
-              <p className="font-mono bg-secondary rounded px-2 py-1 mt-1 flex items-center justify-between">
-                play.7days-server.ru
-                <span className="text-xs text-primary cursor-pointer hover:text-primary/80" onClick={() => navigator.clipboard.writeText('play.7days-server.ru')}>
-                  Копировать
-                </span>
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-muted-foreground">Порт</p>
-              <p className="font-mono bg-secondary rounded px-2 py-1 mt-1">26900</p>
-            </div>
-          </div>
-          
-          <Separator className="my-4" />
-          
-          <div className="space-y-4">
-            <div>
-              <div className="flex justify-between mb-1">
-                <span className="text-sm text-muted-foreground">Игроки</span>
-                <span className="text-sm font-medium">36/50</span>
-              </div>
-              <Progress value={72} className="h-2 bg-secondary" />
-            </div>
-            <div>
-              <div className="flex justify-between mb-1">
-                <span className="text-sm text-muted-foreground">Текущий день</span>
-                <span className="text-sm font-medium">День 42</span>
-              </div>
-              <Progress value={42} max={100} className="h-2 bg-secondary" />
+              <h3 className="text-xl font-semibold mb-2">Параметры сервера</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <Globe className="h-4 w-4 text-muted-foreground" />
+                  <span>IP: play.zombieapocalypse.ru:26900</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-muted-foreground" />
+                  <span>Слоты: 32 игрока</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Cpu className="h-4 w-4 text-muted-foreground" />
+                  <span>Хостинг: Выделенный сервер (Москва)</span>
+                </li>
+              </ul>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      <div className="space-y-6">
-        <div>
-          <h3 className="text-xl font-bold mb-3">Технические детали</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-secondary/50 backdrop-blur-sm rounded-lg p-4">
-              <p className="text-sm text-muted-foreground">Версия игры</p>
-              <p className="font-medium">Alpha 20.6 (b9)</p>
-            </div>
-            <div className="bg-secondary/50 backdrop-blur-sm rounded-lg p-4">
-              <p className="text-sm text-muted-foreground">Тип сервера</p>
-              <p className="font-medium">PvE (с PvP зонами)</p>
-            </div>
-            <div className="bg-secondary/50 backdrop-blur-sm rounded-lg p-4">
-              <p className="text-sm text-muted-foreground">Сложность</p>
-              <p className="font-medium">Warrior (Средняя)</p>
-            </div>
-            <div className="bg-secondary/50 backdrop-blur-sm rounded-lg p-4">
-              <p className="text-sm text-muted-foreground">Вайп</p>
-              <p className="font-medium">Каждые 90 дней</p>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-bold mb-3">Особенности сервера</h3>
-          <Card className="border-accent/20 bg-secondary/50 backdrop-blur-sm">
-            <CardContent className="pt-6">
+      <Card className="border-primary/20 bg-secondary/30 backdrop-blur-sm">
+        <CardContent className="pt-6">
+          <div className="flex items-start gap-4">
+            <Calendar className="h-8 w-8 text-primary flex-shrink-0" />
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Расписание</h3>
               <ul className="space-y-2">
-                <li className="flex items-start">
-                  <span className="text-accent mr-2">✓</span>
-                  <p>Увеличенный лут (x2)</p>
+                <li className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-muted-foreground" />
+                  <span>Работа сервера: 24/7</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-accent mr-2">✓</span>
-                  <p>Экономика и внутриигровой магазин</p>
+                <li className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-muted-foreground" />
+                  <span>Плановые вайпы: Каждые 60 дней</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-accent mr-2">✓</span>
-                  <p>Телепортация на базу и к друзьям</p>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-accent mr-2">✓</span>
-                  <p>Защита базы от других игроков</p>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-accent mr-2">✓</span>
-                  <p>Уникальные моды и расширенное строительство</p>
+                <li className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-muted-foreground" />
+                  <span>Рестарты: Ежедневно в 05:00 МСК</span>
                 </li>
               </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="border-primary/20 bg-secondary/30 backdrop-blur-sm md:col-span-2">
+        <CardContent className="pt-6">
+          <h3 className="text-xl font-semibold mb-4">Текущий статус:</h3>
+          <div className="flex flex-wrap gap-3">
+            <Badge variant="outline" className="bg-green-500/10 text-green-400 border-green-500/30">
+              Онлайн
+            </Badge>
+            <Badge variant="outline" className="bg-blue-500/10 text-blue-400 border-blue-500/30">
+              Версия: Alpha 21.1
+            </Badge>
+            <Badge variant="outline" className="bg-purple-500/10 text-purple-400 border-purple-500/30">
+              Игроков: 14/32
+            </Badge>
+            <Badge variant="outline" className="bg-yellow-500/10 text-yellow-400 border-yellow-500/30">
+              День игры: 23
+            </Badge>
+            <Badge variant="outline" className="bg-red-500/10 text-red-400 border-red-500/30">
+              До вайпа: 37 дней
+            </Badge>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
